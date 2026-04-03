@@ -21,7 +21,7 @@ public class Room {
    }
    public Item getItemInRoom(String itemWord) {
        for (Item item : itemsInRoom) {
-           if (item.getItemType().equalsIgnoreCase(itemWord)) {
+           if (item.getItemType().equalsIgnoreCase(itemWord) || item.getShortName().equalsIgnoreCase(itemWord)) {
                return item;
            }
        }
@@ -49,7 +49,7 @@ public class Room {
 
    public boolean hasItem(String itemName) {
        for (Item item : itemsInRoom) {
-           if (item.getItemType().equalsIgnoreCase(itemName)) {
+           if (item.getItemType().equalsIgnoreCase(itemName) || item.getShortName().equalsIgnoreCase(itemName)) {
                return true;
            }
        }

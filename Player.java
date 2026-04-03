@@ -8,7 +8,7 @@ public class Player {
    private int currentY;
    private Item equipt;
    private boolean equipted = false;
-   private double protection;
+   private double protection = 1.0;
 
 
    public Player(int health, String playerName, int startingX, int startingY) {
@@ -45,7 +45,7 @@ public class Player {
    public boolean isEquipt() {
       return equipted;
    }
-   public int damage(int amount){
+   public double damage(double amount){
       health-=amount;
    return health;
    }
@@ -55,7 +55,7 @@ public class Player {
    }
    public Item getItem(String item) {
       for(int i=0;i<inventory.size();i++){
-         if(inventory.get(i).getItemType().equalsIgnoreCase(item)){
+         if(inventory.get(i).getItemType().equalsIgnoreCase(item) || inventory.get(i).getShortName().equalsIgnoreCase(item)){
          
             return inventory.get(i);
          }
@@ -66,7 +66,7 @@ public class Player {
 
     public boolean hasItem(String itemName) {
         for (Item item : inventory) {
-            if (item.getItemType().equalsIgnoreCase(itemName)) {
+            if (item.getItemType().equalsIgnoreCase(itemName) || item.getShortName().equalsIgnoreCase(itemName)) {
                 return true;
             }
         }
@@ -125,5 +125,11 @@ public class Player {
    }
    public Room getRoom(Map map) {
      return map.getRoom(currentX, currentY);
+   }
+   public void setProtection(Double num) {
+     this.protection = num;
+   }
+   public double getProtection() {
+     return this.protection;
    }
 }
