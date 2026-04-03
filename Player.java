@@ -83,6 +83,13 @@ public class Player {
    public Room currentRoom(Map map) {
       return map.getRoom(currentX, currentY);
    }
+   public String getInv() {
+      String returnString = "";
+      for(Item item : inventory){
+         returnString += item.getItemType()+"\n";
+      }
+      return returnString;
+   }
    public void moveTo(int x, int y) {
       // TODO: Update the Player's currentX and currentY values.
       currentX=x;

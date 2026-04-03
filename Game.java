@@ -8,7 +8,7 @@ public class Game {
 
         Scanner scanner = new Scanner(System.in);
         Player player = new Player(100, "Hero", ((int) (Math.random() * dungeonMap.getNumRows())), ((int) (Math.random() * dungeonMap.getNumCols())));
-        System.out.println("Use: equipts armor or shields\nEquipt: puts a weapon in the main hand to fight\nTake/Grab: takes item from room and stores it in player inventory\nDrop: Drops item\nFight: attacks a monster in the room\nMove: Can move left right up down\n\nP.S you can only equipt swords, daggers or knives\n");
+        System.out.println("Use: equipts armor or shields\nInventory: gives you the items in the inventory\nEquipt: puts a weapon in the main hand to fight\nTake/Grab: takes item from room and stores it in player inventory\nDrop: Drops item\nFight: attacks a monster in the room\nMove: Can move left right up down\n\nP.S you can only equipt swords, daggers or knives\n");
         while (!exitGame) {
             System.out.print("Enter command: ");
             String input = scanner.nextLine().toUpperCase();
@@ -16,6 +16,8 @@ public class Game {
             if (input.equals("EXIT")) {
                 System.out.println("Exiting game. Goodbye!");
                 exitGame = true;
+            } else if (input.equals("INVENTORY")) {
+               System.out.println(player.getInv());
             } else if (input.equals("LOOK") || input.equals("SEARCH")) {
                 System.out.println(player.look(dungeonMap));
             } else if (input.startsWith("USE")) {
