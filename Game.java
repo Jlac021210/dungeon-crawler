@@ -8,6 +8,7 @@ public class Game {
 
         Scanner scanner = new Scanner(System.in);
         Player player = new Player(100, "Hero", ((int) (Math.random() * dungeonMap.getNumRows())), ((int) (Math.random() * dungeonMap.getNumCols())));
+        System.out.println("Use: equipts armor or shields\nEquipt: puts a weapon in the main hand to fight\nTake/Grab: takes item from room and stores it in player inventory\nDrop: Drops item\nFight: attacks a monster in the room\nMove: Can move left right up down\n\nP.S you can only equipt swords, daggers or knives\n");
         while (!exitGame) {
             System.out.print("Enter command: ");
             String input = scanner.nextLine().toUpperCase();
