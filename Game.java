@@ -52,11 +52,11 @@ public class Game {
             } else if (input.startsWith("DROP ")) {
                 if(player.hasItem(input.substring(5))) {
                     Item item = player.getItem(input.substring(5));
-                    if (input.substring(5).equalsIgnoreCase(item.getItemType())) {
+                    if (input.substring(5).equalsIgnoreCase(item.getItemType()) || input.substring(5).equalsIgnoreCase(item.getShortName())) {
                         player.removeItemFromInventory(item);
                         player.unEquipt(item);
                         player.currentRoom(dungeonMap).addItem(item);
-                        System.out.println("Dropped: " + input.substring(5).toLowerCase());
+                        System.out.println("Dropped: " + item.getItemType());
                     }
                 }else{
                     System.out.println("The player doesn't have: "+input.substring(5).toLowerCase());
